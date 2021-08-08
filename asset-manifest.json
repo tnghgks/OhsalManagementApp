@@ -1,12 +1,12 @@
 {
-  "main.js": "/ohsalmanagementapp/static/js/main.05f571a6.chunk.js",
-  "main.js.map": "/ohsalmanagementapp/static/js/main.05f571a6.chunk.js.map",
-  "static/js/1.0ecbfbb6.chunk.js": "/ohsalmanagementapp/static/js/1.0ecbfbb6.chunk.js",
-  "static/js/1.0ecbfbb6.chunk.js.map": "/ohsalmanagementapp/static/js/1.0ecbfbb6.chunk.js.map",
-  "runtime~main.js": "/ohsalmanagementapp/static/js/runtime~main.eb3eba5b.js",
-  "runtime~main.js.map": "/ohsalmanagementapp/static/js/runtime~main.eb3eba5b.js.map",
-  "static/media/ohsal_logo.jpg": "/ohsalmanagementapp/static/media/ohsal_logo.d4b79d34.jpg",
-  "index.html": "/ohsalmanagementapp/index.html",
-  "precache-manifest.1e4f9e5274cf08e82b120dded2eac650.js": "/ohsalmanagementapp/precache-manifest.1e4f9e5274cf08e82b120dded2eac650.js",
-  "service-worker.js": "/ohsalmanagementapp/service-worker.js"
+  "main.js": "/OhsalManagementApp/static/js/main.05f571a6.chunk.js",
+  "main.js.map": "/OhsalManagementApp/static/js/main.05f571a6.chunk.js.map",
+  "static/js/1.cd6ccae4.chunk.js": "/OhsalManagementApp/static/js/1.cd6ccae4.chunk.js",
+  "static/js/1.cd6ccae4.chunk.js.map": "/OhsalManagementApp/static/js/1.cd6ccae4.chunk.js.map",
+  "runtime~main.js": "/OhsalManagementApp/static/js/runtime~main.5de9d048.js",
+  "runtime~main.js.map": "/OhsalManagementApp/static/js/runtime~main.5de9d048.js.map",
+  "static/media/ohsal_logo.jpg": "/OhsalManagementApp/static/media/ohsal_logo.d4b79d34.jpg",
+  "index.html": "/OhsalManagementApp/index.html",
+  "precache-manifest.642bdd2c05857165f7bedbaed055fe19.js": "/OhsalManagementApp/precache-manifest.642bdd2c05857165f7bedbaed055fe19.js",
+  "service-worker.js": "/OhsalManagementApp/service-worker.js"
 }

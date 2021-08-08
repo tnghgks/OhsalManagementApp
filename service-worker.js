@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/ohsalmanagementapp/precache-manifest.1e4f9e5274cf08e82b120dded2eac650.js"
+  "/OhsalManagementApp/precache-manifest.642bdd2c05857165f7bedbaed055fe19.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/ohsalmanagementapp/index.html", {
+workbox.routing.registerNavigationRoute("/OhsalManagementApp/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
