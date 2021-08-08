@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/ohsalmanagementapp/precache-manifest.e23ad6cb0c88a0be8d2b6db3881d0591.js"
+  "/ohsalmanagementapp/precache-manifest.1e4f9e5274cf08e82b120dded2eac650.js"
 );
 
 workbox.clientsClaim();
