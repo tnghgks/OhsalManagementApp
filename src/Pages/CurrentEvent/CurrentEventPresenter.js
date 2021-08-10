@@ -7,7 +7,7 @@ const Container = styled.div`
 	background-color:red;
 `;
 
-const CurrentEventPresenter = ({error , loading }) => <Container></Container>
+const CurrentEventPresenter = ({name, error , loading }) => <Container>{name}</Container>
 	  
 	  
 	  

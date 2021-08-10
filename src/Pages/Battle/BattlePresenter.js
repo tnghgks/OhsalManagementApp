@@ -17,10 +17,10 @@ const Section = styled.div`
 	border:5px solid #000;
 	z-index:5;
 `
-const BattlePresenter = ({error , loading }) => (
+const BattlePresenter = ({result, error , loading }) => (
 	<Container>
 		<Section>
-			<Battle title="내전이벤트" createAt="11시" createBy="호수"></Battle>
+			{console.log(typeof result)}
 		</Section>
 		<Section>ss</Section>
 	</Container>

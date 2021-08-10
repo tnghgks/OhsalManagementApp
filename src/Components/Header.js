@@ -29,7 +29,7 @@ const Image = styled.img`
 export default () => (
 	<Header>
 		<Link to="/">
-			<Image src={require("assets/ohsal_logo.jpg")}/>
+			<Image src={require("Assets/ohsal_logo.jpg")}/>
 		</Link>
 		<ul>
 			<Item>

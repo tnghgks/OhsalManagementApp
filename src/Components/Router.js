@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {HashRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import Header from "Components/Header";
 import Home from "Pages/Home";
 import Battle from "Pages/Battle";
