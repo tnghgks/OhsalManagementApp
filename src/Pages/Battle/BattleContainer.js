@@ -13,10 +13,9 @@ export default class extends React.Component {
 		
 	}
 	async componentDidMount(){
-		const { data : result } = await axios.get("/getBattle");
-		const arrResult = [...result];
-		console.log(arrResult);
-		this.setState({result:arrResult});
+		const { data }= await axios.get("/getBattle");
+		this.setState({result:data});
+		console.log(this.state.result);
 	}
 	render(){
 		const { result, error, loading } = this.state;

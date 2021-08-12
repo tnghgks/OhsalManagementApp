@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server:dev": "nodemon server/server.js --exec babel-node",
+    "server:dev": "react-scripts build ;nodemon server/server.js --exec babel-node",
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"

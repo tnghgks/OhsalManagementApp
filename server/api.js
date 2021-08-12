@@ -2,11 +2,11 @@ import Battle from "./Models/Battle";
 
 export const newBattle = async(req,res) => {
 	await Battle.create({
-		title,
-		createAt,
-		createBy
+		title:"hosusBattle",
+		createAt:"2021-08-12",
+		createBy:"HOSU"
 	})
-	return "Success";
+	return res.status(200);
 }
 
 export const getBattle = async(req, res) => {
