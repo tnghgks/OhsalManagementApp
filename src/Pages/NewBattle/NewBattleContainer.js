@@ -1,20 +1,17 @@
 import React from "react";
-import CurrentEventPresenter from "./CurrentEventPresenter";
+import NewBattlePresenter from "./NewBattlePresenter";
 import axios from "axios";
 
 export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: null,
       error: null,
       loading: true,
     };
   }
   async componentDidMount() {
     try {
-      const { data: result } = await axios.get("/getEvent");
-      this.setState({ result });
     } catch (error) {
       this.setState({ error });
     } finally {
@@ -22,9 +19,7 @@ export default class extends React.Component {
     }
   }
   render() {
-    const { result, error, loading } = this.state;
-    return (
-      <CurrentEventPresenter result={result} error={error} loading={loading} />
-    );
+    const { error, loading } = this.state;
+    return <NewBattlePresenter error={error} loading={loading} />;
   }
 }

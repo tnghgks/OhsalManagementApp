@@ -3,13 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "gh-pages": "^3.2.3",
+    "helmet": "^4.6.0",
     "lsof": "^0.1.0",
     "mongoose": "^5.13.5",
+    "morgan": "^1.10.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -20,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server:dev": "react-scripts build ;nodemon server/server.js --exec babel-node",
+    "server:dev": "nodemon server/server.js --ignore ./src --exec babel-node",
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
@@ -39,5 +47,6 @@
     "@babel/node": "^7.14.9",
     "@babel/preset-env": "^7.15.0",
     "nodemon": "^2.0.12"
-  }
+  },
+  "proxy": "http://localhost:3001/"
 }
