@@ -18,6 +18,19 @@ const BattleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  ended: {
+    type: Boolean,
+    default: false,
+    required: true,
+  },
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  round: {
+    type: Number,
+    required: true,
+  },
 });
 
 const model = mongoose.model("Battle", BattleSchema);

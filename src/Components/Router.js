@@ -10,6 +10,7 @@ import Logout from "Components/Logout";
 import Home from "Pages/Home";
 import Battle from "Pages/Battle";
 import NewBattle from "Pages/NewBattle";
+import BattleDetail from "Pages/BattleDetail";
 import CurrentEvent from "Pages/CurrentEvent";
 import RandomTeam from "Pages/RandomTeam";
 import Login from "Pages/Login";
@@ -37,6 +38,11 @@ export default ({ authenticate, handleLogin, handleLogout }) => (
           path="/newBattle"
           exact
           render={() => <NewBattle authenticate={authenticate} />}
+        />
+        <Route
+          path="/battleDetail/:id"
+          exact
+          render={() => <BattleDetail authenticate={authenticate} />}
         />
         <Redirect from="*" to="/" />
       </Switch>

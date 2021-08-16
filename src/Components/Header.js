@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = styled.header`
@@ -26,7 +26,7 @@ const Image = styled.img`
   height: 50px;
 `;
 
-export default ({ authenticate }) => (
+export default withRouter(({ authenticate }) => (
   <Header>
     <Link to="/">
       <Image src={require("Assets/ohsal_logo.jpg")} />
@@ -57,4 +57,4 @@ export default ({ authenticate }) => (
       )}
     </ul>
   </Header>
-);
+));

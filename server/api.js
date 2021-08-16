@@ -4,12 +4,20 @@ import User from "./Models/User";
 import bcrypt from "bcrypt";
 
 export const newBattle = async (req, res) => {
-  await Battle.create({
-    title: "hosusBattle",
-    createAt: "2021-08-12",
-    createBy: "HOSU",
-  });
-  return res.status(200);
+  const { title, createBy, round, startDate } = req.body;
+  try {
+    const battle = await Battle.create({
+      title,
+      createBy,
+      round,
+      startDate,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.status(401);
+  } finally {
+    return res.status(200);
+  }
 };
 
 export const getBattle = async (req, res) => {
@@ -18,13 +26,19 @@ export const getBattle = async (req, res) => {
 };
 
 export const newEvent = async (req, res) => {
-  await Event.create({
-    title: "오살과 함께하는 즐거운 내전이벤트",
-    discription: "다음과 같이 개최합니다.",
-    createAt: "2021-08-14",
-    createBy: "호수",
-  });
-  return res.status(200);
+  const { title, discription, createBy } = req.body;
+  try {
+    const battle = await Event.create({
+      title,
+      discription,
+      createBy,
+    });
+  } catch (e) {
+    console.log(e);
+    return res.status(401);
+  } finally {
+    return res.status(200);
+  }
 };
 
 export const getEvent = async (req, res) => {
@@ -53,4 +67,14 @@ export const newUser = async (req, res) => {
   });
 
   return res.status(200);
+};
+
+export const battleDetail = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await Battle.find({ _id: id });
+    return res.json(result);
+  } catch (e) {
+    return res.status(401);
+  }
 };

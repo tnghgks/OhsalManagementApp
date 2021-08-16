@@ -6,12 +6,36 @@ export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: null,
+      createBy: null,
+      round: null,
+      startDate: null,
+      startTime: null,
       error: null,
       loading: true,
     };
   }
-  async componentDidMount() {
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const { title, createBy, round, startDate } = this.state;
+    await axios({
+      method: "post",
+      url: "/newBattle",
+      data: {
+        title,
+        createBy,
+        round,
+        startDate,
+      },
+    });
+  };
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
+  };
+  componentDidMount() {
     try {
+      const { authenticate } = this.props;
+      authenticate || this.props.history.push("/");
     } catch (error) {
       this.setState({ error });
     } finally {
@@ -20,6 +44,13 @@ export default class extends React.Component {
   }
   render() {
     const { error, loading } = this.state;
-    return <NewBattlePresenter error={error} loading={loading} />;
+    return (
+      <NewBattlePresenter
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange}
+        error={error}
+        loading={loading}
+      />
+    );
   }
 }

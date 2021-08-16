@@ -14,7 +14,7 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 20%;
-  height: 25%;
+  height: 40%;
   border: 3px solid #fff;
   border-radius: 15px;
   font-size: 18px;

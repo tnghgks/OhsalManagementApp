@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Content from "Components/Content";
 import PropTypes from "prop-types";
 import Loader from "Components/Loader";
+import { Link } from "react-router-dom";
 
 const Container = styled.article`
   padding: 15px;
@@ -40,12 +41,14 @@ const BattlePresenter = ({ result, error, loading }) =>
         </Header>
         {result &&
           result.map((data) => (
-            <Content
-              key={data._id}
-              title={data.title}
-              createAt={data.createAt}
-              createBy={data.createBy}
-            />
+            <Link key={data._id} to={`/battleDetail/${data._id}`}>
+              <Content
+                key={data._id}
+                title={data.title}
+                createAt={data.createAt}
+                createBy={data.createBy}
+              />
+            </Link>
           ))}
       </EventContainer>
     </Container>
