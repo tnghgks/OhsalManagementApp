@@ -49,5 +49,5 @@
     "@babel/preset-env": "^7.15.0",
     "nodemon": "^2.0.12"
   },
-  "proxy": "http://localhost:3001/"
+  "proxy": "http://localhost:3001"
 }

@@ -3,7 +3,7 @@ import Event from "./Models/Event";
 import User from "./Models/User";
 import bcrypt from "bcrypt";
 
-export const newBattle = async (req, res) => {
+export const createBattle = async (req, res) => {
   const { title, createBy, round, startDate } = req.body;
   try {
     const battle = await Battle.create({
@@ -12,11 +12,9 @@ export const newBattle = async (req, res) => {
       round,
       startDate,
     });
+    res.status(200).end();
   } catch (e) {
-    console.log(e);
-    return res.status(401);
-  } finally {
-    return res.status(200);
+    res.status(406).end();
   }
 };
 
@@ -35,9 +33,9 @@ export const newEvent = async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    return res.status(401);
+    return res.status(406).end();
   } finally {
-    return res.status(200);
+    return res.status(200).end();
   }
 };
 
@@ -75,6 +73,6 @@ export const battleDetail = async (req, res) => {
     const result = await Battle.find({ _id: id });
     return res.json(result);
   } catch (e) {
-    return res.status(401);
+    return res.status(406).end();
   }
 };

@@ -18,16 +18,24 @@ export default class extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { title, createBy, round, startDate } = this.state;
-    await axios({
-      method: "post",
-      url: "/newBattle",
-      data: {
-        title,
-        createBy,
-        round,
-        startDate,
-      },
-    });
+    const { push } = this.props.history;
+    try {
+      await axios({
+        method: "post",
+        url: "/createBattle",
+        data: {
+          title,
+          createBy,
+          round,
+          startDate,
+        },
+      });
+      push("/");
+    } catch (e) {
+      console.log(e);
+    } finally {
+      push("/");
+    }
   };
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });

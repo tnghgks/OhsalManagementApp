@@ -31,6 +31,10 @@ const BattleSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  player: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "User",
+  },
 });
 
 const model = mongoose.model("Battle", BattleSchema);

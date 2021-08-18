@@ -6,7 +6,7 @@ import getUser from "./controller/getUser";
 import dotenv from "dotenv";
 import {
   newUser,
-  newBattle,
+  createBattle,
   getBattle,
   newEvent,
   getEvent,
@@ -31,7 +31,7 @@ app.get("/", function(req, res) {
 app.get("/api", (req, res) => res.json({ username: "hosu" }));
 app.get("/getUser", async (req, res) => res.json(await getUser()));
 app.get("/getBattle", getBattle);
-app.post("/newBattle", newBattle);
+app.post("/createBattle", createBattle);
 //app.get("/newEvent", newEvent);
 app.get("/getEvent", getEvent);
 app.get("/battleDetail/:id", battleDetail);

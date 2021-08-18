@@ -18,14 +18,13 @@ export default class extends React.Component {
           params: { id },
         },
       } = this.props;
-      const result = await axios({
+      const { data: result } = await axios({
         method: "get",
         url: `/battleDetail/${id}`,
       });
-      console.log(result);
+      this.setState({ result: result[0] });
     } catch (error) {
-      console.log(error);
-      this.setState({ error });
+      this.setState({ error: "Error 가 발생하였습니다." });
     } finally {
       this.setState({ loading: false });
     }

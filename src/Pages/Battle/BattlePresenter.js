@@ -10,7 +10,7 @@ const Container = styled.article`
   width: 100%;
   height: calc(100vh - 50px);
 `;
-const EventContainer = styled.div`
+const BattleContainer = styled.div`
   margin: 0 auto;
   width: 30%;
   height: 100%;
@@ -33,7 +33,7 @@ const BattlePresenter = ({ result, error, loading }) =>
     <Loader />
   ) : (
     <Container>
-      <EventContainer>
+      <BattleContainer>
         <Header>
           <Item>올린이</Item>
           <Item>제목</Item>
@@ -50,7 +50,7 @@ const BattlePresenter = ({ result, error, loading }) =>
               />
             </Link>
           ))}
-      </EventContainer>
+      </BattleContainer>
     </Container>
   );
 
