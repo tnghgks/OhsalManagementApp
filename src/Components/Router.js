@@ -9,6 +9,7 @@ import Header from "Components/Header";
 import Logout from "Components/Logout";
 import Home from "Pages/Home";
 import Battle from "Pages/Battle";
+import Join from "Pages/Join";
 import NewBattle from "Pages/NewBattle";
 import BattleDetail from "Pages/BattleDetail";
 import CurrentEvent from "Pages/CurrentEvent";
@@ -28,6 +29,11 @@ export default ({ authenticate, handleLogin, handleLogout }) => (
           path="/login"
           exact
           render={() => <Login handleLogin={handleLogin} />}
+        />
+        <Route
+          path="/join"
+          exact
+          render={() => <Join handleLogin={handleLogin} />}
         />
         <Route
           path="/logout"

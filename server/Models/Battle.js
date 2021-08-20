@@ -31,10 +31,13 @@ const BattleSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  player: {
-    type: mongoose.SchemaTypes.ObjectId,
-    ref: "User",
-  },
+  player: [
+    {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "User",
+      default: null,
+    },
+  ],
 });
 
 const model = mongoose.model("Battle", BattleSchema);

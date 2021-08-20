@@ -23,9 +23,19 @@ class App extends React.Component {
     this.setState({ authenticate: data });
   };
 
-  handleLogout = () => {
+  handleLogout = async () => {
+    const result = await axios({ method: "get", url: "/getLogout" });
+    console.log(result);
     this.setState({ authenticate: false });
   };
+  async componentDidMount() {
+    const { data } = await axios({
+      method: "get",
+      url: "/getLoginCheck",
+    });
+
+    this.setState({ authenticate: data });
+  }
 
   render() {
     const { authenticate } = this.state;

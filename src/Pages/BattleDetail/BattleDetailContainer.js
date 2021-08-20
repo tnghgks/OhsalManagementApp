@@ -6,6 +6,7 @@ export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      user_id: null,
       result: null,
       error: null,
       loading: true,
@@ -29,10 +30,34 @@ export default class extends React.Component {
       this.setState({ loading: false });
     }
   }
+  handleClick = async () => {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
+    try {
+      const result = await axios({
+        method: "post",
+        url: "/addPlayer",
+        data: {
+          id,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     const { result, error, loading } = this.state;
     return (
-      <BattleDetailPresenter result={result} error={error} loading={loading} />
+      <BattleDetailPresenter
+        handleClick={this.handleClick}
+        result={result}
+        error={error}
+        loading={loading}
+      />
     );
   }
 }

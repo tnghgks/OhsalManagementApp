@@ -30,14 +30,14 @@ const Button = styled.button`
   height: 50px;
   border: 3px solid #fff;
 `;
-const BattleDetailPresenter = ({ result, error, loading }) =>
+const BattleDetailPresenter = ({ handleClick, result, error, loading }) =>
   loading ? (
     <Loader />
   ) : error ? (
     <Message text={error}></Message>
   ) : result ? (
     <Container>
-      <PlayerContainer>플레이어 명단</PlayerContainer>
+      <PlayerContainer>{result.player}</PlayerContainer>
       <BattleContainer>
         <ul>
           <li>만든 시간 : {result.createAt}</li>
@@ -49,6 +49,7 @@ const BattleDetailPresenter = ({ result, error, loading }) =>
       </BattleContainer>
       <ConsoleContainer>
         <Button>내전 시작</Button>
+        <Button onClick={handleClick}>내전 참가</Button>
       </ConsoleContainer>
     </Container>
   ) : (

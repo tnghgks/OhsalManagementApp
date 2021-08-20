@@ -20,7 +20,7 @@ export const createBattle = async (req, res) => {
 
 export const getBattle = async (req, res) => {
   const result = await Battle.find({});
-  return res.json(result);
+  return res.json(result).end();
 };
 
 export const newEvent = async (req, res) => {
@@ -47,11 +47,14 @@ export const getEvent = async (req, res) => {
 export const postLogin = async (req, res) => {
   const { id, passwd } = req.body;
   const user = await User.find({ name: id });
-
   if (user) {
-    bcrypt.compare(passwd, user[0].password, (err, result) => res.send(result));
+    bcrypt.compare(passwd, user[0].password, (err, result) => {
+      req.session.user_id = user[0]._id;
+      res.send(result).end();
+    });
   } else {
-    res.send(false);
+    console.log(false);
+    res.send(false).end();
   }
 };
 
@@ -64,7 +67,7 @@ export const newUser = async (req, res) => {
     });
   });
 
-  return res.status(200);
+  return res.status(200).end();
 };
 
 export const battleDetail = async (req, res) => {
@@ -74,5 +77,34 @@ export const battleDetail = async (req, res) => {
     return res.json(result);
   } catch (e) {
     return res.status(406).end();
+  }
+};
+
+export const addPlayer = async (req, res) => {
+  const { id: battleId } = req.body;
+  const { player } = await Battle.findOne({ _id: battleId }).exec();
+  console.log(battleId);
+  console.log(req.session.user_id);
+  const result = await Battle.findByIdAndUpdate(battleId, {
+    $addToSet: { player: req.session.user_id },
+    $set: { userCount: player.length },
+  }).exec();
+  console.log(player.length);
+  res.status(200).end();
+};
+
+export const getLoginCheck = async (req, res) => {
+  const { user_id } = req.session;
+  const result = await User.exists({ _id: user_id });
+  result ? res.send(true).end() : res.send(false).end();
+};
+
+export const getLogout = async (req, res) => {
+  if (req.session) {
+    req.session.destroy();
+    res.status(200).end();
+  } else {
+    console.log("세션이 없습니다. 로그인해주세요.");
+    res.status(406).end();
   }
 };
