@@ -1,12 +1,13 @@
 {
-  "main.js": "/OhsalManagementApp/static/js/main.05f571a6.chunk.js",
-  "main.js.map": "/OhsalManagementApp/static/js/main.05f571a6.chunk.js.map",
-  "static/js/1.cd6ccae4.chunk.js": "/OhsalManagementApp/static/js/1.cd6ccae4.chunk.js",
-  "static/js/1.cd6ccae4.chunk.js.map": "/OhsalManagementApp/static/js/1.cd6ccae4.chunk.js.map",
-  "runtime~main.js": "/OhsalManagementApp/static/js/runtime~main.5de9d048.js",
-  "runtime~main.js.map": "/OhsalManagementApp/static/js/runtime~main.5de9d048.js.map",
-  "static/media/ohsal_logo.jpg": "/OhsalManagementApp/static/media/ohsal_logo.d4b79d34.jpg",
-  "index.html": "/OhsalManagementApp/index.html",
-  "precache-manifest.642bdd2c05857165f7bedbaed055fe19.js": "/OhsalManagementApp/precache-manifest.642bdd2c05857165f7bedbaed055fe19.js",
-  "service-worker.js": "/OhsalManagementApp/service-worker.js"
+  "main.js": "/static/js/main.5770325a.chunk.js",
+  "main.js.map": "/static/js/main.5770325a.chunk.js.map",
+  "static/js/1.651b73f6.chunk.js": "/static/js/1.651b73f6.chunk.js",
+  "static/js/1.651b73f6.chunk.js.map": "/static/js/1.651b73f6.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
+  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
+  "static/media/ohsal_logo.jpg": "/static/media/ohsal_logo.d4b79d34.jpg",
+  "static/media/backgorund_video.mp4": "/static/media/backgorund_video.035f2104.mp4",
+  "index.html": "/index.html",
+  "precache-manifest.48440eead1044f8b4b219d71b19ae2e1.js": "/precache-manifest.48440eead1044f8b4b219d71b19ae2e1.js",
+  "service-worker.js": "/service-worker.js"
 }
