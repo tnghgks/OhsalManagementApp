@@ -16,8 +16,8 @@ class App extends React.Component {
       method: "post",
       url: "/postLogin",
       data: {
-        id: id,
-        passwd: passwd,
+        id,
+        passwd,
       },
     });
     this.setState({ authenticate: data });

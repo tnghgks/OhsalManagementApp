@@ -30,7 +30,20 @@ const Button = styled.button`
   height: 50px;
   border: 3px solid #fff;
 `;
-const BattleDetailPresenter = ({ handleClick, result, error, loading }) =>
+const UserMaker = styled.div`
+  width: 200px;
+  height: 200px;
+  background-color: red;
+`;
+const BattleDetailPresenter = ({
+  toggle,
+  handleClick,
+  handleSubmit,
+  handleChange,
+  result,
+  error,
+  loading,
+}) =>
   loading ? (
     <Loader />
   ) : error ? (
@@ -50,6 +63,21 @@ const BattleDetailPresenter = ({ handleClick, result, error, loading }) =>
       <ConsoleContainer>
         <Button>내전 시작</Button>
         <Button onClick={handleClick}>내전 참가</Button>
+        {toggle ? (
+          <UserMaker>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="이름"
+                name="playerName"
+                onChange={handleChange}
+              ></input>
+              <input type="submit" value="참가"></input>
+            </form>
+          </UserMaker>
+        ) : (
+          ""
+        )}
       </ConsoleContainer>
     </Container>
   ) : (

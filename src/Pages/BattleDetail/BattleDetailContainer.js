@@ -7,6 +7,8 @@ export default class extends React.Component {
     super(props);
     this.state = {
       user_id: null,
+      toggle: false,
+      playerName: null,
       result: null,
       error: null,
       loading: true,
@@ -30,18 +32,30 @@ export default class extends React.Component {
       this.setState({ loading: false });
     }
   }
-  handleClick = async () => {
+  handleClick = () => {
+    const { toggle } = this.state;
+    toggle ? this.setState({ toggle: false }) : this.setState({ toggle: true });
+  };
+
+  handleChange = ({ target }) => {
+    this.setState({ playerName: target.value });
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
     const {
       match: {
         params: { id },
       },
-    } = this.props;
+    } = this.props; //battle id
+    const { playerName } = this.state;
     try {
       const result = await axios({
         method: "post",
-        url: "/addPlayer",
+        url: "/postAddUser",
         data: {
           id,
+          playerName,
         },
       });
     } catch (error) {
@@ -50,13 +64,16 @@ export default class extends React.Component {
   };
 
   render() {
-    const { result, error, loading } = this.state;
+    const { toggle, result, error, loading } = this.state;
     return (
       <BattleDetailPresenter
         handleClick={this.handleClick}
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange}
         result={result}
         error={error}
         loading={loading}
+        toggle={toggle}
       />
     );
   }

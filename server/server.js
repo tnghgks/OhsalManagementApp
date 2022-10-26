@@ -3,12 +3,13 @@ import morgan from "morgan";
 import helmet from "helmet";
 import path from "path";
 import mongoose from "mongoose";
+import passport from "passport";
 import express_session from "express-session";
 import mongoose_session from "mongoose-session";
 import getUser from "./controller/getUser";
 import dotenv from "dotenv";
 import {
-  newUser,
+  postAddUser,
   createBattle,
   getBattle,
   newEvent,
@@ -18,8 +19,10 @@ import {
   addPlayer,
   getLoginCheck,
   getLogout,
+  postJoin,
 } from "./api";
 import "./db";
+import "./passport";
 
 dotenv.config();
 
@@ -37,6 +40,7 @@ app.use(
     cookie: { maxAge: 3.6e6 * 12 }, // 12시간 뒤 만료(자동 삭제)
   })
 );
+
 app.use(express.static(path.join(__dirname, "../build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -48,13 +52,24 @@ app.get("/getUser", async (req, res) => res.json(await getUser()));
 app.get("/getBattle", getBattle);
 app.post("/createBattle", createBattle);
 //app.get("/newEvent", newEvent);
+app.get("/auth/discord", passport.authenticate("discord"));
+app.get(
+  "/discord/callback",
+  passport.authenticate("discord", {
+    failureRedirect: "/",
+  }),
+  function(req, res, next) {
+    res.send(req.user).end();
+  }
+);
 app.get("/getEvent", getEvent);
 app.get("/getLoginCheck", getLoginCheck);
 app.get("/getLogout", getLogout);
 app.get("/battleDetail/:id", battleDetail);
 app.post("/addPlayer", addPlayer);
 app.post("/postLogin", postLogin);
-//app.get("/newUser", newUser);
+app.post("/postJoin", postJoin);
+app.post("/postAddUser", postAddUser);
 
 app.listen(port, () => {
   console.log(`listening at ${port}`);

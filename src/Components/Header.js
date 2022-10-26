@@ -51,14 +51,9 @@ export default withRouter(({ authenticate }) => (
           </Item>
         </>
       ) : (
-        <>
-          <Item>
-            <Link to="/login">로그인</Link>
-          </Item>
-          <Item>
-            <Link to="/join">가입</Link>
-          </Item>
-        </>
+        <Item>
+          <Link to="/login">로그인</Link>
+        </Item>
       )}
     </ul>
   </Header>

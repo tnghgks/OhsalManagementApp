@@ -14,7 +14,7 @@ export const createBattle = async (req, res) => {
     });
     res.status(200).end();
   } catch (e) {
-    res.status(406).end();
+    res.status(401).end();
   }
 };
 
@@ -33,7 +33,7 @@ export const newEvent = async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    return res.status(406).end();
+    return res.status(401).end();
   } finally {
     return res.status(200).end();
   }
@@ -58,16 +58,27 @@ export const postLogin = async (req, res) => {
   }
 };
 
-export const newUser = async (req, res) => {
-  bcrypt.hash("o1h2s3a4l@", 10, async (err, hash) => {
-    await User.create({
-      name: "ohsalAdmin",
-      password: hash,
-      admin: true,
+export const postAddUser = async (req, res) => {
+  try {
+    const { playerName } = req.body;
+    const user = await User.create({
+      name: playerName,
     });
-  });
-
-  return res.status(200).end();
+    user
+      ? res
+          .send(true)
+          .status(200)
+          .end()
+      : res
+          .send(false)
+          .status(401)
+          .end();
+  } catch (e) {
+    return res
+      .send(false)
+      .status(401)
+      .end();
+  }
 };
 
 export const battleDetail = async (req, res) => {
@@ -76,7 +87,7 @@ export const battleDetail = async (req, res) => {
     const result = await Battle.find({ _id: id });
     return res.json(result);
   } catch (e) {
-    return res.status(406).end();
+    return res.status(401).end();
   }
 };
 
@@ -105,6 +116,21 @@ export const getLogout = async (req, res) => {
     res.status(200).end();
   } else {
     console.log("세션이 없습니다. 로그인해주세요.");
-    res.status(406).end();
+    res.status(401).end();
+  }
+};
+
+export const postJoin = async (req, res) => {
+  const { email, id, passwd } = req.body;
+  const result = await User.exists({ email });
+  if (result) {
+    res.send(false).end();
+  } else {
+    await User.create({
+      email,
+      id,
+      passwd,
+    });
+    res.send(true).end();
   }
 };
